@@ -1,0 +1,25 @@
+def most_frequent(data: list) -> str:
+    set_data = set(data)
+    list_sdata = list(set_data)
+    dic_data = {}
+    for i in range(len(set_data)):
+        dic_data[list_sdata[i]] = data.count(list_sdata[i])
+    return max(dic_data, key=dic_data.get)
+
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    print('Example:')
+    print(most_frequent([
+        'a', 'b', 'c',
+        'a', 'b',
+        'a'
+    ]))
+
+    assert most_frequent([
+        'a', 'b', 'c',
+        'a', 'b',
+        'a'
+    ]) == 'a'
+
+    assert most_frequent(['a', 'a', 'bi', 'bi', 'bi']) == 'bi'
+    print('Done')
